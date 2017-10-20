@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Workout} from './workout';
 import {WorkoutsService} from '../workouts.service';
+import {AuthenticationService} from "../authentication/authentication.service";
 
 @Component({
   selector: 'app-workouts',
@@ -15,7 +16,8 @@ export class WorkoutsComponent implements OnInit {
 
   constructor(
     private workoutService: WorkoutsService,
-    private ref: ChangeDetectorRef
+    private ref: ChangeDetectorRef,
+    private auth: AuthenticationService
   ) {  }
 
   getWorkouts(): void {
@@ -24,6 +26,10 @@ export class WorkoutsComponent implements OnInit {
         this.workouts = response;
         this.ref.markForCheck();
       });
+  }
+
+  isLoggedIn(){
+    return this.auth.isLoggedIn();
   }
 
   ngOnInit() {

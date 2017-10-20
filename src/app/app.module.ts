@@ -9,6 +9,9 @@ import { CreateWorkoutComponent } from './create-workout/create-workout.componen
 import { CreateExerciseComponent } from './create-exercise/create-exercise.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import {AuthenticationService} from "./authentication/authentication.service";
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,8 @@ import { FormsModule } from '@angular/forms';
     WorkoutsComponent,
     CreateWorkoutComponent,
     CreateExerciseComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule
   ],
   providers: [
-    WorkoutsService
+    WorkoutsService,
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })

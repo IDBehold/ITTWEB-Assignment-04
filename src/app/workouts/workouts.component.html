@@ -1,7 +1,7 @@
 <div *ngFor="let workout of workouts" >
   <h3>{{workout.name}}</h3>
   <!--<button (click)="deleteWorkout(workout._id)" type='button' class="btn btn-danger glyphicon glyphicon-trash"></button> -->
-  <button (click)="countUp(workout._id)" type='button' class="btn btn-info glyphicon glyphicon-arrow-up">  {{workout.count}}</button>
+  <button *ngIf="isLoggedIn()" (click)="countUp(workout._id)" type='button' class="btn btn-info glyphicon glyphicon-arrow-up">  {{workout.count}}</button>
   <div class="table-responsive">
     <table class="table">
       <thead>

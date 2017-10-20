@@ -1,8 +1,10 @@
 <h1>{{title}}</h1>
 <nav>
   <a routerLink="/" routerLinkActive="active" type="button" class="btn btn-primary">Home</a>
-  <a routerLink="/create-workout" routerLinkActive="active" type="button" class="btn btn-success">Create Workout</a>
-  <a routerLink="/create-exercise" routerLinkActive="active" type="button" class="btn btn-success">Create Exercise</a>
+  <a *ngIf="isLoggedIn()" routerLink="/create-workout" routerLinkActive="active" type="button" class="btn btn-success">Create Workout</a>
+  <a *ngIf="isLoggedIn()" routerLink="/create-exercise" routerLinkActive="active" type="button" class="btn btn-success">Create Exercise</a>
+  <a *ngIf="!isLoggedIn()" routerLink="/login" routerLinkActive="active" type="button" class="btn btn-default">Login</a>
+  <button *ngIf="isLoggedIn()" (click)="logout()" type="button" class="btn btn-danger">Logout</button>
 </nav>
 <router-outlet></router-outlet>
 
