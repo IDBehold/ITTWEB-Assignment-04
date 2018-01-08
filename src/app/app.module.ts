@@ -10,7 +10,7 @@ import { CreateExerciseComponent } from './create-exercise/create-exercise.compo
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-import {AuthenticationService} from "./authentication/authentication.service";
+import { AuthenticationService } from "./authentication/authentication.service";
 import { RegisterComponent } from './register/register.component';
 
 @NgModule({

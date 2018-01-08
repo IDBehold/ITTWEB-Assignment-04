@@ -1,13 +1,15 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
+import {WorkoutsService} from "../workouts.service";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class AuthenticationService {
   constructor(private http: Http) {
   }
 
-  register(name: string, email: string, password: string) {
+  register(name: string, email: string, password: string) : Observable<void> {
     return this.http.post('https://salty-garden-88598.herokuapp.com/api/register', {
       name: name,
       email: email,
@@ -23,7 +25,7 @@ export class AuthenticationService {
       });
   }
 
-  login(email: string, password: string) {
+  login(email: string, password: string) : Observable<void>  {
     return this.http.post('https://salty-garden-88598.herokuapp.com/api/login', {email: email, password: password})
       .map((response: Response) => {
         // login successful if there's a jwt token in the response
